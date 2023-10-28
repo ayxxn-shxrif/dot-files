@@ -1,0 +1,91 @@
+Xft.autohint: 0
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=15
+
+! window padding
+st.borderpx: 20
+Xft.dpi: 90
+
+!- 0.1 to 0.9 = transparency
+st.alpha: 1.0
+
+Xcursor.theme: volantes_cursors
+
+*.foreground:   #d8caac
+*.background:   #2B3339
+*.cursorColor:  #d8caac
+
+! black
+*.color0:       #3a4248
+*.color8:       #868d80
+
+! red
+*.color1:       #e68183
+*.color9:       #e68183
+
+! green
+*.color2:       #a7c080
+*.color10:      #a7c080
+
+! yellow
+*.color3:       #d9bb80
+*.color11:      #d9bb80
+
+! blue
+*.color4:       #89beba
+*.color12:      #89beba
+
+! magenta
+*.color5:       #d3a0bc
+*.color13:      #d3a0bc
+
+! cyan
+*.color6:       #87c095
+*.color14:      #87c095
+
+! white
+*.color7:       #d8caac
+*.color15:      #d8caac
+
+
+! special
+*.foreground: #c0caf5
+*.background: #16161e
+*.cursorColor: #c0caf5
+
+! black
+*.color0: #24283b
+*.color8: #24283b
+
+! red
+*.color1: #f7768e
+*.color9: #f7768e
+
+! green
+*.color2: #9ece6a
+*.color10: #9ece6a
+
+! yellow
+*.color3: #ffa86f
+*.color11: #ffa86f
+
+! blue
+*.color4: #88afff
+*.color12: #88afff
+
+! magenta
+*.color5: #c3a4f8
+*.color13: #c3a4f8
+
+! cyan
+*.color6: #09c1dc
+*.color14: #09c1dc
+
+! white
+*.color7: #c0caf5
+*.color15: #c0caf5
