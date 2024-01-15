@@ -2,30 +2,202 @@
 *{
 	all: unset;
 	font-family: feather;
-	font-family: "JetBrains Mono";
-	color: #151515;
+	font-family: "BlexMono Nerd Font";
+	color: #000000;
+
 }
+
+$background: #1A1B26;
+$foreground: #A9B1D6;
+
+$black: #24283B;
+$gray: #565F89;
+$red: #F7768E;
+$green: #73DACA;
+$yellow: #E0AF68;
+$blue: #7AA2F7;
+$magenta: #BB9AF7;
+$cyan: #7DCFFF;
+$white: $foreground;
+
+.eww_bar{
+	background-color: $background;
+	padding: .3rem;
+  }
+  
+
+.works {
+	font-family: "Font Awesome 6 Pro";
+	padding: .2rem .7rem .2rem .7rem;
+	background-color: $black;
+	border-radius: 5px;
+	}
+
+
+	.0 , .01, .02, .03, .04, .05, .06,
+	.011, .022, .033, .044, .055, .066{
+	  margin: .55rem 0 .55rem 0;
+	}
+	
+	/* Unoccupied */
+	.0 {
+	color: $gray;
+	}
+	
+	/* Occupied */
+	.01, .02, .03, .04, .05, .06 {
+	  color: $gray;
+	}
+	
+	/* Focused */
+	.011,
+	.022,
+	.033,
+	.044,
+	.055,
+	.066 {
+	  color: $foreground;
+	}
+	
+	.0:nth-child(1),
+	.0:nth-child(3){
+	  font-size: 1.5em;
+	}
+	.0:nth-child(2){
+	  font-size: 1.4em;
+	}
+	.0:nth-child(4),
+	.0:nth-child(5){
+	  font-size: 1.6em;
+	}
+	.0:nth-child(6){
+	  font-size: 1.7em;
+	}
+	.01,
+	.011,
+	.03,
+	.033{
+	  font-size: 1.5em;
+	}
+	.02,
+	.022{
+	  font-size: 1.4em;
+	}
+	.04,
+	.05,
+	.044,
+	.055{
+	  font-size: 1.6em;
+	}
+	.06,
+	.066{
+	  font-size: 1.7em;
+	}
+	
+
+
 
 /** Bar ***********************************/
-.dockbox {
-	background-color: #F5EEE6;
-	border: 1px solid #161616;
-	border-radius: 12px;
+
+
+
+
+
+.apps-box {
+	background-color: #a3b18a;
+	border: 0px solid #E6DFD7;
+	border-radius: 0px;
+	min-height: 8px;
+	padding-left : 5;
 }
 
+
+.work-box {
+	background-color: #101802;
+	border: 0px solid #E6DFD7;
+	border-radius: 0px;
+	min-height: 8px;
+}
+
+
+.noti {
+    background-color: #3a5a40;
+	
+	min-height: 10px;
+	padding-right: 8px;
+	padding-left: 16;
+}
+
+.deb-o{
+	background-color: #343A40;
+	border: 0px solid #E6DFD7;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	min-height: 8px;
+	padding-left:20
+
+}
+.deb-contain {
+	background-repeat: no-repeat;
+	background-size: 30px;
+	background-color: #404353;
+	min-width: 30px;
+	padding-top: 5px;
+	padding-left:10px;
+	
+
+}
+
+.search-contain {
+	background-repeat: no-repeat;
+	
+	background-color: #6B7089;
+	padding-top: 5px;
+	padding-left:10px;
+	margin-right:0px;
+
+}
+
+.power-contain {
+	background-repeat: no-repeat;
+	background-size: 30px;
+	background-color: #959DBF;
+	padding-top: 5px;
+	padding-left:10px;
+	margin-right:0px;
+
+}
 /** Icons ***********************************/
+
+.debian {
+	background-repeat: no-repeat;
+	background-size: 25px;
+	min-height: 8px;
+	min-width: 30px;
+	padding-right: 4;
+	background-color: #404353;
+	border: 0px solid #E6DFD7;
+	
+	
+}	
+
 .genicon {
     background-repeat: no-repeat;
-	background-size: 20px;
-	min-height: 20px;
-	min-width: 20px;
+    color: white;
+	background-size: 25px;
+	min-height: 8px;
+	min-width: 35px;
+	
 }
+
 
 .appicon {
     background-repeat: no-repeat;
-	background-size: 40px;
-	min-height: 40px;
-	min-width: 40px;
+	background-size: 30px;
+	min-height: 8px;
+	min-width: 35px;
+	margin-top: 2;
+	
 }
 
 .workspace {
@@ -128,28 +300,93 @@
 
 .trayicon {
     background-repeat: no-repeat;
-	background-size: 24px;
-	min-height: 24px;
-	min-width: 24px;
-	margin: 8px 0px 0px 0px;
+	background-size: 15px;
+	margin-top: 3px;
+	min-height: 20px;
+	min-width: 17px;
+
 }
 
 .infotext {
-	background-color: #DCD7CD;
-	border: 0px solid #161616;
-	border-radius: 16px;
+	
 	font-size : 14px;
-	padding: 0px 5px 0px 5px;
-	margin: 10px 0px 10px 0px;
-	font-weight : bold;
+	padding: 0px 0px 2px 0px;
+	margin: 0px 0px 0px 0px;
+	
 }
 
 .face {
 	background-size: 24px;
-	min-height: 24px;
+	min-height: 14px;
 	min-width: 24px;
 	margin: 8px 0px 8px 0px;
 	border-radius: 100%;
+	
 }
 
+
+.bat {
+	background-color: #DCD7CD;
+	border: 0px solid #161616;
+	border-radius: 50px;
+	margin-top: 5;
+	margin-bottom: 5;
+}
+
+
 /** EOF *************************************************/
+
+
+.res_box {
+	background-color: #dad7cd;
+	border: 0px solid #E6DFD7;
+	border-radius: 0px;
+	min-height: 8px;
+	
+}
+
+.res_text {
+	background-repeat: no-repeat;
+	min-height: 8px;
+	min-width: 35px;
+	margin-bottom: 8;
+}
+
+
+
+
+.stats_box {
+	background-color: #344E41;
+	border: 0px solid #E6DFD7;
+	border-radius: 0px;
+	min-height: 8px;
+
+}
+
+.stats_text {
+	background-repeat: no-repeat;
+	background-size: 30px;
+	min-height: 8px;
+	min-width: 35px;
+	margin-top: 8;
+	margin-bottom: 8;
+}
+
+
+.sob{
+	background-color: #344E41;
+	border: 0px solid #E6DFD7;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	min-height: 8px;
+	padding-right: 25px;
+	padding-left:15
+	
+}
+
+
+
+
+
+
+

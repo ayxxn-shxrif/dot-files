@@ -42,27 +42,95 @@
 (defvar IMAGE "images/profile.jpg")
 (defpoll USER :interval "10m" `whoami`)
 
+
+;; System vars
+(defpoll HOST :interval "5s" `hostname`)
+(defpoll CPU_USAGE :interval "1s" `./scripts/sys_info --cpu`)
+(defpoll MEM_USAGE :interval "1s" `./scripts/sys_info --mem`)
+(defpoll DISK_USAGE :interval "1s" `./scripts/sys_info --disk`)
+(defpoll BLIGHT :interval "1s" `./scripts/sys_info --blight`)
+(defpoll BATTERY :interval "5s" `./scripts/sys_info --bat`)
+(defpoll QUOTE :interval "5m" `./scripts/quotes`)
+
+
 ;; ** Widgets *************************************************************************
 
 ;; search
 (defwidget search [] 
-		(box :class "dockbox"
+		(box :class ""
 			(box :orientation "h" :spacing 30 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-				(button :style "background-image: url('images/icons/search.svg');" :class "genicon" :onclick "scripts/widget_search --search")
-				(button :style "background-image: url('images/icons/dashboard.svg');" :class "genicon" :onclick "scripts/widget_search --menu")
-				(label :class "workspace" :halign "start" :text WMS))))
+				)))
+
+
+
+
+
+
+
+
+
+
+
 
 ;; apps
 (defwidget apps [] 
 		(box :class "dockbox"
-			(box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-				(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon" :onclick "scripts/widget_apps --tr")
-				(button :style "background-image: url('images/icons/apps/firefox.png');" :class "appicon" :onclick "scripts/widget_apps --ff")
-				(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon" :onclick "scripts/widget_apps --fm")
-				(button :style "background-image: url('images/icons/apps/notes.png');" :class "appicon" :onclick "scripts/widget_apps --ge")
-				(button :style "background-image: url('images/icons/apps/discord.png');" :class "appicon" :onclick "scripts/widget_apps --dc")
-				(button :style "background-image: url('images/icons/apps/reddit.png');" :class "appicon" :onclick "scripts/widget_apps --rd")
-				(button :style "background-image: url('images/icons/apps/telegram.png');" :class "appicon" :onclick "scripts/widget_apps --tg"))))
+			(box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"			    
+		    	(box :class "deb-o" :orientation "h" :spacing 0 :space-evenly "true"
+            (box :orientation "h" :spacing 0 :class "deb-contain"	
+				(button :style "background-image: url('images/icons/debian.svg');" :class "debian" :onclick "scripts/widget_search --menu")))
+		    	(box :orientation "h" :spacing 0 :class "search-contain"	
+            (button :style "background-image: url('images/icons/search.svg');" :class "genicon" :onclick "scripts/widget_search --menu"))
+            (box :orientation "h" :spacing 0 :class "power-contain"	
+            (button :style "background-image: url('images/icons/power.svg');" :class "genicon" :onclick "scripts/widget_search --menu"))
+
+
+           
+			
+            
+            
+            
+
+
+                   
+
+
+               
+            	(box :class "res_box" :orientation "h" :spacing 0 :space-evenly "true"
+					(label :class "res_text" :valign "end" :halign "center" :text "󰀘")
+               (label :class "res_text" :valign "end" :halign "center" :text "󰀘")
+               (label :class "res_text" :valign "end" :halign "center" :text "󰀘")
+              )
+             
+
+
+			(box :orientation "h" :spacing 1 :class "apps-box"
+				(button :style "background-image: url('images/icons/apps/terminal.svg');" :class "appicon" :onclick "scripts/widget_apps --tr")
+				(button :style "background-image: url('images/icons/apps/firefox.svg');" :class "appicon" :onclick "scripts/widget_apps --ff")
+				(button :style "background-image: url('images/icons/apps/files.svg');" :class "appicon" :onclick "scripts/widget_apps --fm") )
+            
+            
+            (box :orientation "h" :spacing 0 :class "noti"
+            ;(box :orientation "h" :spacing 0 :class "bat"
+				(button :onclick "scripts/widget_apps --pow" :class ""
+					(box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+						(box :style "background-image: url('${BATICON}');" :class "trayicon")
+							(label :class "infotext" :halign "start" :text BATPERC)))
+            (button :onclick "scripts/volume --toggle" :class ""
+					(box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+						(box :style "background-image: url('${VOLICON}');" :class "trayicon")))
+				(button :onclick "scripts/widget_apps --nm"  :class ""
+					(box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+						(box :style "background-image: url('${WIFIICON}');" :class "trayicon"))))
+            
+            (box :class "sob" :orientation "h" :spacing 0 :space-evenly "true"
+            
+            (box :class "stats_box" :orientation "h" :valign "center"  :spacing 0 
+					(label :class "stats_text" :valign "end" :halign "center" :text "${MEM_USAGE}% |"))
+				(box :class "stats_box" :orientation "h" :valign "center"  :spacing 0 
+					(label :class "stats_text"  :halign "center" :text "${DISK_USAGE}% |"))
+				(box :class "stats_box" :orientation "h" :valign "center"  :spacing 0 
+					(label :class "stats_text"   :text "${CPU_USAGE}%"))))))
 
 ;; weather
 (defwidget weather [] 
@@ -90,38 +158,18 @@
 ;; system
 (defwidget system [] 
 		(box :class "dockbox"
-			(box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-				(button :onclick "scripts/widget_apps --ml"
-					(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-						(box :style "background-image: url('images/icons/gmail.png');" :class "trayicon")
-							(label :class "mails" :halign "start" :text MAILS)))
-				(button :onclick "scripts/widget_apps --pow"
-					(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-						(box :style "background-image: url('${BATICON}');" :class "trayicon")
-							(label :class "infotext" :halign "start" :text BATPERC)))
-				(button :onclick "scripts/volume --toggle"
-					(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-						(box :style "background-image: url('${VOLICON}');" :class "trayicon")
-							(label :class "infotext" :halign "start" :text VOLUME)))
-				(button :onclick "scripts/widget_apps --nm"
-					(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-						(box :style "background-image: url('${WIFIICON}');" :class "trayicon")
-							(label :class "infotext" :halign "start" :text NETSTAT)))
-				(button :onclick "sidedar/toggle_sidebar"
-					(box :orientation "h" :spacing 8 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-						(box :style "background-image: url('${IMAGE}');" :class "face")
-							(label :class "infotext" :halign "start" :text USER))))))
+			(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false")))
 
 ;; ** Windows *************************************************************************
 
 ;; search
 (defwindow search
            :monitor 0
-           :geometry (geometry :x "20px"
+           :geometry (geometry :x "0px"
                                :y "20px"
                                :width "180px"
                                :height "60px"
-                               :anchor "top left")
+                               :anchor "bottom left")
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
@@ -130,14 +178,14 @@
 
 ;; apps
 (defwindow apps
-           :monitor 0
-           :geometry (geometry :x "230px"
-                               :y "20px"
+           :monitor 1
+           :geometry (geometry :x "0px"
+                               :y "0px"
                                :width "400px"
-                               :height "60px"
-                               :anchor "top left")
+                               :height "45px"
+                               :anchor "bottom center")
            :stacking "fg"
-           :reserve (struts :distance "80px" :side "top")
+           :reserve (struts :distance "50px" :side "bottom")
            :windowtype "dock"
            :wm-ignore false
 (apps))
@@ -145,9 +193,9 @@
 ;; weather
 (defwindow weather
            :monitor 0
-           :geometry (geometry :x "660px"
-                               :y "20px"
-                               :width "300px"
+           :geometry (geometry :x "760px"
+                               :y "10px"
+                               :width "200px"
                                :height "60px"
                                :anchor "top left")
            :stacking "fg"
@@ -173,7 +221,7 @@
 ;; system
 (defwindow system
            :monitor 0
-           :geometry (geometry :x "1420px"
+           :geometry (geometry :x "720px"
                                :y "20px"
                                :width "480px"
                                :height "60px"
